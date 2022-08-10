@@ -1,0 +1,40 @@
+body {
+    --mainColor: #b389cb;
+    --mainColorDark: #8d4eb1;
+}
+
+.btn-primary {
+    background-color: var(--mainColor);
+    border: 0px;
+}
+
+.btn-primary:hover {
+    background-color: var(--mainColorDark);
+    border: 0px;
+    transition-duration: 0.4s;
+}
+
+.btn-primary:focus {
+    background-color: var(--mainColorDark);
+    color: #ffffff;
+    border: 0px;
+}
+
+.btn-search {
+    background-color: #d3692b;
+    color: #f5f5f5;
+    font-weight: 500;
+    transition-duration: 0.4s;
+  }
+
+  .btn-search:hover {
+      background-color: #a35224;
+      color: #f5f5f5;
+      border: #a35224;
+  }
+
+  .btn-search:focus {
+      background-color: #d3692b;
+      color: #f5f5f5;
+      border: #d3692b;
+  }
