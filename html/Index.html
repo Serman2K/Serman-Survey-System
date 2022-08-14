@@ -33,7 +33,10 @@
     <div class="row py-lg-5">
       <div>
         <h1><img class="mt-2" src="../pictures/Logo.png" alt="" width="200" height="200"></h1>
-        <p class="lead text-muted">You don't have any surveys :(</p>
+        <h2>My Surveys:</h2>
+        <div class="Survey-list">
+          <p class="lead text-muted empty-message">You don't have any surveys :(</p>
+        </div>
         <p>
           <a href="#" id="modalBtn" class="btn btn-primary my-2">Create New Survey</a>
         </p>
@@ -46,18 +49,18 @@
       <div class="modal-content w-25">
         <h2>New Survey</h2>
         <p class="lead text-muted">How would you like to name your survey?</p>
-        <input type="text" class="form-control mb-4" id="surveyName">
-      <div class="modal-footer">
-        <button class="btn btn-primary w-25" onclick="window.location.href='Index.html'">Create</button>
-        <button class="btn btn-secondary w-25" data-dismiss="modal">Cancel</button>
-      </div>
+        <input type="text" class="form-control mb-4 Survey-Name" id="surveyName">
+        <div class="modal-footer">
+          <button type="submit" class="add-Survey-Btn btn btn-primary w-25" id="btnCreateSurvey">Create</button>
+          <button class="btn btn-secondary w-25" id="closeBtn" data-dismiss="Modal">Cancel</button>
+        </div>
       </div>
     </div>
   </div>
 
 </main>
 
-<script src="../js/Modal.js"></script>
+<script src="../js/ModalSurveyCreator.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
       
