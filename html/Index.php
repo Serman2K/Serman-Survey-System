@@ -1,3 +1,8 @@
+<?php 
+session_start();
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,11 +21,11 @@
     <header>
         <nav class="navbar navbar-expand navbar-dark fixed-top" style="background-color: #b389cb;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="Index.html">Home</a>
+                <a class="navbar-brand" href="Index.php">Home</a>
                 <div>
                     <form class="navbar-nav">
-                      <span class="navbar-text me-5 text-white">Hello, Serman</span>
-                      <button type="button" class="btn btn-secondary mr-auto" onclick="window.location.href='Login.html'">Logout</button>
+                      <span class="navbar-text me-5 text-white">Hello, <?php echo $_SESSION['user_name']; ?></span>
+                      <button type="button" class="btn btn-secondary mr-auto" onclick="location.href='../php/logoutSeq.php'">Logout</button>
                     </form>
                 </div>
             </div>
@@ -66,3 +71,11 @@
       
   </body>
 </html>
+
+<?php
+}
+else {
+  header("Location: Login.php");
+  exit();
+}
+?>

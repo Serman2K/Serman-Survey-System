@@ -16,29 +16,34 @@
     
 <main class="form-signin">
   <div class="text-center">
-  <form>
     <img class="mt-2" src="../pictures/Logo.png" alt="" width="200" height="200">
+  <form action="../php/loginSeq.php" method="post">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
+    <?php if (isset($_GET['error'])) { ?>
+      <p class="error"><?php echo $_GET['error']; ?></p>
+    <?php } ?>
+
     <div class="form-floating">
-      <input type="email" class="form-control" id="emailAddress" placeholder="name@example.com">
-      <label for="emailAddress">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="password" placeholder="Password">
-      <label for="password">Password</label>
+      <input type="text" class="form-control" name="emailAddress" id="emailAddress" placeholder="name@example.com">
+      <label>Email address</label>
     </div>
 
+    <div class="form-floating">
+      <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      <label>Password</label>
+    </div>
+<!--
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    
-    <button class="w-100 btn btn-lg btn-purple" type="button" onclick="window.location.href='Index.html'">Sign in</button>
-    <a href="Register.html">Create a new account</a>
-    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    -->
+    <button class="w-100 btn btn-lg btn-purple" type="submit">Login</button>
   </form>
+  <!--<a href="Register.html">Create a new account</a>-->
+  <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 </div>
 </main>
     
