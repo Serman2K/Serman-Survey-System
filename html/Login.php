@@ -12,7 +12,8 @@
 
     <link href="../css/login.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+
+<body class="text-center">
     
 <main class="form-signin">
   <div class="text-center">
@@ -42,10 +43,10 @@
     -->
     <button class="w-100 btn btn-lg btn-purple" type="submit">Login</button>
   </form>
-  <!--<a href="Register.html">Create a new account</a>-->
+  <a href="Register.html">Create a new account</a>
   <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 </div>
 </main>
     
-  </body>
+</body>
 </html>
