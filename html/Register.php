@@ -22,6 +22,11 @@
         <form class="form" action="../php/registerSeq.php" method="post">
 
           <h1 class="h3 mb-3 fw-normal">Sign up for free</h1>
+
+          <?php if (isset($_GET['error'])) { ?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+          <?php } ?>
+
           <div class="form-floating">
             <input type="text" class="form-control" name="user_name" id="userName" placeholder="Username" required>
             <label>username</label>

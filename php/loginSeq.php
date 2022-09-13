@@ -25,13 +25,13 @@ if (isset($_POST['emailAddress']) && isset($_POST['password'])) {
     
     else{
 
-        $sql = "SELECT * FROM users WHERE email='$emailAddress' AND password='$pass'";
+        $sql = "SELECT * FROM users WHERE email='$emailAddress'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
 
-            if ($row['email'] === $emailAddress && $row['password'] === $pass) {
+            if ($row['email'] === $emailAddress && password_verify($pass, $row['password'])) {
                 echo "Logged in!";
 
                 $_SESSION['user_name'] = $row['user_name'];
@@ -43,6 +43,7 @@ if (isset($_POST['emailAddress']) && isset($_POST['password'])) {
 
             else{
                 header("Location: ../html/Login.php?error=Incorect Email Address or Password");
+                password_verify($pass, $row['password']);
                 exit();
             }
         }

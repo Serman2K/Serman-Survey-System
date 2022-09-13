@@ -23,14 +23,14 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE user_name = ?'))
     $stmt->store_result();
 
     if($stmt->num_rows>0) {
-        echo 'Username Already Exists. Try Again';
+        header("Location: ../html/Register.php?error=Username Already Exists. Try Again");
     }
     else {
         if ($stmt = $con->prepare('INSERT INTO users (user_name, password, email) VALUES (?, ?, ?)')) {
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $stmt->bind_param('sss', $_POST['user_name'], $password, $_POST['emailAddress']);
             $stmt->execute();
-            echo 'Succesfully Registered';
+            header("Location: ../html/Login.php?error=Succesfully Registered");
         }
         else {
             echo 'Error Occurred';

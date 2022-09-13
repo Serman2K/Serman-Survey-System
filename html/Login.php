@@ -43,7 +43,7 @@
     -->
     <button class="w-100 btn btn-lg btn-purple" type="submit">Login</button>
   </form>
-  <a href="Register.html">Create a new account</a>
+  <a href="Register.php">Create a new account</a>
   <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 </div>
 </main>
