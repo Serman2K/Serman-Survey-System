@@ -1,0 +1,8 @@
+body {
+    --mainColor: #b389cb;
+    --mainColorDark: #8d4eb1;
+}
+
+.borderpurple {
+    border: 5px solid #8d4eb1;
+}

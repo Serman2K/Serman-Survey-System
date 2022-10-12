@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Survey</title>
+    <link rel="icon" type="favicon" href="../pictures/favicon.ico">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/modal.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+          <nav class="col-md-2 d-none d-md-block sidebar">
+            <h1><img class="mt" src="../pictures/Logo.png" alt="" width="200" height="200"></h1>
+            <div class="sidebar-sticky">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">
+                    <span data-feather="home"></span>
+                    Save Changes
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="bar-chart-2"></span>
+                    Cancel
+                  </a>
+                </li>
+              </ul>
+      
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Reports</span>
+                <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+                  <span data-feather="plus-circle"></span>
+                </a>
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span data-feather="file-text"></span>
+                    Show
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+      
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Survey Title</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                </div>
+              </div>
+            </div>
+            <p class="lead text-muted empty-message">Add description</p>
+      
+            <section class="py-5 container">
+                <div class="row py-lg">
+                  <div>
+                    <div class="Question-list">
+                        <p class="lead empty-message">Question 1 description</p>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                        <label class="form-check-label" for="flexRadioDefault1"> Answer 1 </label>
+                      </div>
+                      
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
+                        <label class="form-check-label" for="flexRadioDefault2"> Answer 2 </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                        <label class="form-check-label" for="flexRadioDefault1"> Answer 3 </label>
+                      </div>
+                      
+                  </div>
+                  <p>
+                  </p>
+                </div>
+                <div class="py-5 text-center">
+                    <a href="#" id="modalBtn" class="btn btn-primary my-2">Add Question</a>
+                </div>
+              </section>
+
+</main>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+      
+  </body>
+</html>
