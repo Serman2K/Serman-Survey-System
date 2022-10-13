@@ -55,6 +55,18 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         <h2>New Survey</h2>
         <p class="lead text-muted">How would you like to name your survey?</p>
         <input type="text" class="form-control mb-4 Survey-Name" id="surveyName">
+
+        <p class="lead text-muted">Type description here</p>
+        <textarea name="description" class="form-control mb-4 Survey-Description" id="surveyDescription"></textarea>
+
+        <p class="lead text-muted">Start</p>
+        <input type="datetime-local" class="form-control mb-4 Survey-Start" id="surveyStart">
+
+        <p class="lead text-muted">End</p>
+        <input type="datetime-local" class="form-control mb-4 Survey-End" id="surveyEnd">
+
+        <p class="lead text-muted">You can change the dates later</p>
+
         <div class="modal-footer">
           <button type="submit" class="add-Survey-Btn btn btn-primary w-25" id="btnCreateSurvey">Create</button>
           <button class="btn btn-secondary w-25" id="closeBtn" data-dismiss="Modal">Cancel</button>
