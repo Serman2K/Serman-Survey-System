@@ -4,6 +4,25 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 ?>
 
 <!doctype html>
+
+<?php
+	function createDirectory() {
+		$add = generateRandomString();
+		mkdir("sb/".$add);
+	}
+?>
+<?php
+function generateRandomString($length = 12) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -50,29 +69,44 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
   </section>
 
   <div id="modal" class="modal">
-    <div class="modal-dialog-centered">
-      <div class="modal-content w-25">
-        <h2>New Survey</h2>
-        <p class="lead text-muted">How would you like to name your survey?</p>
-        <input type="text" class="form-control mb-4 Survey-Name" id="surveyName">
 
-        <p class="lead text-muted">Type description here</p>
-        <textarea name="description" class="form-control mb-4 Survey-Description" id="surveyDescription"></textarea>
+    <?php
+    if (!isset($_POST['submit'])) {
+      ?>
 
-        <p class="lead text-muted">Start</p>
-        <input type="datetime-local" class="form-control mb-4 Survey-Start" id="surveyStart">
+    <form action = "" method = "post">
+      <div class="modal-dialog-centered">
+        <div class="modal-content w-25">
+          <h2>New Survey</h2>
+          <p class="lead text-muted">How would you like to name your survey?</p>
+          <input type="text" class="form-control mb-4 Survey-Name" id="surveyName">
 
-        <p class="lead text-muted">End</p>
-        <input type="datetime-local" class="form-control mb-4 Survey-End" id="surveyEnd">
+          <p class="lead text-muted">Type description here</p>
+          <textarea name="description" class="form-control mb-4 Survey-Description" id="surveyDescription"></textarea>
 
-        <p class="lead text-muted">You can change the dates later</p>
+          <p class="lead text-muted">Start</p>
+          <input type="datetime-local" class="form-control mb-4 Survey-Start" id="surveyStart">
 
-        <div class="modal-footer">
-          <button type="submit" class="add-Survey-Btn btn btn-primary w-25" id="btnCreateSurvey">Create</button>
-          <button class="btn btn-secondary w-25" id="closeBtn" data-dismiss="Modal">Cancel</button>
+          <p class="lead text-muted">End</p>
+          <input type="datetime-local" class="form-control mb-4 Survey-End" id="surveyEnd">
+
+          <p class="lead text-muted">You can change the dates later</p>
+
+          <div class="modal-footer">
+            <button type="submit" class="add-Survey-Btn btn btn-primary w-25" id="btnCreateSurvey">Create</button>
+            <button class="btn btn-secondary w-25" id="closeBtn" data-dismiss="Modal">Cancel</button>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
+
+    <?php
+    }
+    else {
+      createDirectory();
+    }
+    ?>
+
   </div>
 
 </main>
