@@ -5,24 +5,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 <!doctype html>
 
-<?php
-	function createDirectory() {
-		$add = generateRandomString();
-		mkdir("sb/".$add);
-	}
-?>
-<?php
-function generateRandomString($length = 12) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
-}
-?>
-
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -57,61 +39,53 @@ function generateRandomString($length = 12) {
     <div class="row py-lg-5">
       <div>
         <h1><img class="mt-2" src="../pictures/Logo.png" alt="" width="200" height="200"></h1>
+
+        <?php if (isset($_GET['error'])) { ?>
+        <p class="error"><?php echo $_GET['error']; ?></p>
+      <?php } ?>
+
         <h2>My Surveys:</h2>
         <div class="Survey-list">
           <p class="lead text-muted empty-message">You don't have any surveys :(</p>
         </div>
         <p>
-          <a href="#" id="modalBtn" class="btn btn-primary my-2">Create New Survey</a>
+          <a href="./NewSurvey.php" id="modalBtn" class="btn btn-primary my-2">Create New Survey</a>
         </p>
       </div>
     </div>
   </section>
 
-  <div id="modal" class="modal">
-
-    <?php
-    if (!isset($_POST['submit'])) {
-      ?>
-
-    <form action = "" method = "post">
+<!-- <div id="modal" class="modal">
+  <form class="form" action="../php/folderSeq.php" method="post">
       <div class="modal-dialog-centered">
         <div class="modal-content w-25">
           <h2>New Survey</h2>
           <p class="lead text-muted">How would you like to name your survey?</p>
-          <input type="text" class="form-control mb-4 Survey-Name" id="surveyName">
+          <input type="text" class="form-control mb-4 Survey-Name" name="survey_name" id="surveyName" required>
 
           <p class="lead text-muted">Type description here</p>
-          <textarea name="description" class="form-control mb-4 Survey-Description" id="surveyDescription"></textarea>
+          <textarea name="description" class="form-control mb-4 Survey-Description" name="survey_description" id="surveyDescription" required></textarea>
 
           <p class="lead text-muted">Start</p>
-          <input type="datetime-local" class="form-control mb-4 Survey-Start" id="surveyStart">
+          <input type="datetime-local" class="form-control mb-4 Survey-Start" name="survey_start" id="surveyStart">
 
           <p class="lead text-muted">End</p>
-          <input type="datetime-local" class="form-control mb-4 Survey-End" id="surveyEnd">
+          <input type="datetime-local" class="form-control mb-4 Survey-End" name="survey_end" id="surveyEnd">
 
           <p class="lead text-muted">You can change the dates later</p>
 
           <div class="modal-footer">
-            <button type="submit" class="add-Survey-Btn btn btn-primary w-25" id="btnCreateSurvey">Create</button>
+            <button type="submit" name="submit" class="add-Survey-Btn btn btn-primary w-25" id="btnCreateSurvey" value="Create">Create</button>
             <button class="btn btn-secondary w-25" id="closeBtn" data-dismiss="Modal">Cancel</button>
           </div>
         </div>
       </div>
-    </form>
-
-    <?php
-    }
-    else {
-      createDirectory();
-    }
-    ?>
-
-  </div>
+      </form>
+  </div> -->
 
 </main>
 
-<script src="../js/ModalSurveyCreator.js"></script>
+<!-- <script src="../js/ModalSurveyCreator.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
       
