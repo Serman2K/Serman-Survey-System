@@ -1,8 +1,3 @@
-<?php 
-session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
-?>
-
 <!doctype html>
 
 <html lang="en">
@@ -15,17 +10,18 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="../css/main.css" rel="stylesheet">
+
   </head>
 
   <body>
     <header>
         <nav class="navbar navbar-expand navbar-dark fixed-top" style="background-color: #b389cb;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="Index.php">Home</a>
+                <a class="navbar-brand">Home</a>
                 <div>
                     <form class="navbar-nav">
-                      <span class="navbar-text me-5 text-white">Hello, <?php echo $_SESSION['user_name']; ?></span>
-                      <button type="button" class="btn btn-secondary mr-auto" onclick="location.href='../php/logoutSeq.php'">Logout</button>
+                      <span class="navbar-text me-5 text-white">Hello, Serman</span>
+                      <button type="button" class="btn btn-secondary mr-auto">Logout</button>
                     </form>
                 </div>
             </div>
@@ -33,10 +29,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     </header>
 
 <main>
-
-  <?php if (isset($_GET['error'])) { ?>
-    <p class="error"><?php echo $_GET['error']; ?></p>
-  <?php } ?>
 
   <section class="py-5 text-center container">
     <div class="py-5">
@@ -98,11 +90,3 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
       
   </body>
 </html>
-
-<?php
-}
-else {
-  header("Location: Login.php");
-  exit();
-}
-?>

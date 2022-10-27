@@ -39,31 +39,14 @@ body {
       border: #d3692b;
   }
 
-/*Survey List*/
-.survey-row {         
-    padding: 1vmin /*1rem 2.5rem*/;
-    display: flex;
-    align-items: center;
-    text-align: left;
-    border-radius: 25px;
-    border-color: var(--color-p2);
-    border: 2px solid;
-    border-collapse: collapse;
-  }
-
-  .survey-id {        
-    font-size: 3vmin;
-    text-align: left;
-    padding: 1vmin;
-  }
-
   .survey-name {            
     font-size: 2vmin;
+    font-weight: bold;
     color: var(--mainColor);
-    text-align: left;
     padding: 1vmin;
   }
 
-  .survey-btn {
-    padding-left: 1%;
+  .survey-func-button {
+    font-size: 2vmin;
+    padding: 1vmin;
   }
