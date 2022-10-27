@@ -54,38 +54,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                     <th></th>
                     <th></th>
                 </tr>
-                <tr>
-                    <td class="survey-name survey-name--1"> Survey 1 </td>
-                    <td>21-10-2022</td>
-                    <td>30-10-2022</td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/edit_btn.png" alt="Edit" width="30" height="30"></a>
-                    </td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/show_btn.png" alt="Show" width="30" height="30"></a>
-                    </td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/delete_btn.png" alt="Remove" width="30" height="30"></a>
-                    </td>
-                <tr>
-                <tr>
-                    <td class="survey-name survey-name--1"> Survey 2 </td>
-                    <td>30-10-2022</td>
-                    <td>05-11-2022</td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/edit_btn.png" alt="Edit" width="30" height="30"></a>
-                    </td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/show_btn.png" alt="Show" width="30" height="30"></a>
-                    </td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/delete_btn.png" alt="Remove" width="30" height="30"></a>
-                    </td>
-                <tr>
             </table>
         </div>
         <p>
-          <a id="modalBtn" class="btn btn-primary my-2">Create New Survey</a>
+        <a href="./NewSurvey.php" id="modalBtn" class="btn btn-primary my-2">Create New Survey</a>
         </p>
       </div>
     </div>
