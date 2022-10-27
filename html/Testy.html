@@ -37,44 +37,52 @@
     
         <h2>My Surveys:</h2>
         <div class="Survey-list">
-            <table class="table">
-                <tr>
-                    <th>Survey Name</th>
-                    <th>Start</th>
-                    <th>End</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td class="survey-name survey-name--1"> Survey 1 </td>
-                    <td>21-10-2022</td>
-                    <td>30-10-2022</td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/edit_btn.png" alt="Edit" width="30" height="30"></a>
-                    </td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/show_btn.png" alt="Show" width="30" height="30"></a>
-                    </td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/delete_btn.png" alt="Remove" width="30" height="30"></a>
-                    </td>
-                  </tr>
-                <tr>
-                    <td class="survey-name survey-name--1"> Survey 2 </td>
-                    <td>30-10-2022</td>
-                    <td>05-11-2022</td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/edit_btn.png" alt="Edit" width="30" height="30"></a>
-                    </td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/show_btn.png" alt="Show" width="30" height="30"></a>
-                    </td>
-                    <td class="survey-func-btn">
-                        <a href=""><img src="../pictures/delete_btn.png" alt="Remove" width="30" height="30"></a>
-                    </td>
-                  </tr>
-            </table>
+          <table class="table">
+            <colgroup>
+              <col width="2%">
+              <col width="20%">
+              <col width="20%">
+              <col width="20%">
+              <col width="20%">
+              <col width="18%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td class="survey-name survey-name--1"> Survey 1 </td>
+                <td> opis ankiety </td>
+                <td>21-10-2022</td>
+                <td>30-10-2022</td>
+                <td class="survey-func-btn">
+                  <a class="px-3" href=""><img class="" src="../pictures/edit_btn.png" alt="Edit" width="30" height="30"></a>
+                  <a class="px-3" href=""><img class="" src="../pictures/show_btn.png" alt="Show" width="30" height="30"></a>
+                  <a class="px-3" href=""><img src="../pictures/delete_btn.png" alt="Remove" width="30" height="30"></a>
+                </td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td class="survey-name survey-name--1"> Survey 2 </td>
+                <td> opis ankiety </td>
+                <td>30-10-2022</td>
+                <td>05-11-2022</td>
+                <td class="survey-func-btn">
+                  <a href=""><img src="../pictures/edit_btn.png" alt="Edit" width="30" height="30"></a>
+                  <a href=""><img src="../pictures/show_btn.png" alt="Show" width="30" height="30"></a>
+                  <a href=""><img src="../pictures/delete_btn.png" alt="Remove" width="30" height="30"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <p>
           <a id="modalBtn" class="btn btn-primary my-2">Create New Survey</a>

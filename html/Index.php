@@ -3,6 +3,10 @@ session_start();
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 ?>
 
+<?php
+include "../php/db_conn.php";
+?>
+
 <!doctype html>
 
 <html lang="en">
@@ -46,14 +50,50 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         <h2>My Surveys:</h2>
         <div class="Survey-list">
             <table class="table">
-                <tr>
-                    <th>Survey Name</th>
-                    <th>Start</th>
-                    <th>End</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
+
+            <colgroup>
+              <col width="2%">
+              <col width="20%">
+              <col width="20%">
+              <col width="20%">
+              <col width="20%">
+              <col width="18%">
+            </colgroup>
+
+            <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            <?php
+					  $i = 1;
+            $user_id = $_SESSION['id'];
+					  $qry = $conn->query("SELECT * FROM surveys WHERE user_id=$user_id");
+					  while($row= $qry->fetch_assoc()):
+					  ?>
+
+              <tr>
+                <th class="text-center"><?php echo $i++ ?></th>
+                <td class="survey-name"><?php echo ucwords($row['title']) ?></td>
+                <td class="truncate"><?php echo $row['description'] ?></td>
+                <td><?php echo date("M d, Y",strtotime($row['start_date'])) ?></td>
+                <td><?php echo date("M d, Y",strtotime($row['end_date'])) ?></td>
+                <td class="survey-func-btn">
+                  <a class="px-3" href=""><img src="../pictures/edit_btn.png" alt="Edit" width="30" height="30"></a>
+                  <a class="px-3" href=""><img src="../pictures/show_btn.png" alt="Show" width="30" height="30"></a>
+                  <a class="px-3" href=""><img src="../pictures/delete_btn.png" alt="Remove" width="30" height="30"></a>
+                </td>
+              </tr>
+              <?php endwhile; ?>
+            </tbody>
+
             </table>
         </div>
         <p>
