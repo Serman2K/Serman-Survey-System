@@ -42,7 +42,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
             <p class="lead text-muted">You can change the dates later</p>
 
-            <div class="modal-footer">
+            <div>
                 <button type="submit" name="submit" class="add-Survey-Btn btn btn-primary w-25" id="btnCreateSurvey"
                     value="Create">Create</button>
             </div>

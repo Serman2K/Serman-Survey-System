@@ -1,0 +1,11 @@
+div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    margin-left: 40%;
+    margin-right: 40%;
+    text-align: left;
+}
