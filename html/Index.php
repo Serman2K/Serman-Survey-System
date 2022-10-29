@@ -81,14 +81,14 @@ include "../php/db_conn.php";
 
               <tr>
                 <th class="text-center"><?php echo $i++ ?></th>
-                <td class="survey-name"><?php echo ucwords($row['title']) ?></td>
+                <td class="survey-name"><?php echo $row['title'] ?></td>
                 <td class="truncate"><?php echo $row['description'] ?></td>
                 <td><?php echo date("G:i, M d, Y",strtotime($row['start_date'])) ?></td>
                 <td><?php echo date("G:i, M d, Y",strtotime($row['end_date'])) ?></td>
                 <td class="survey-func-btn">
                   <a class="px-3" href="./EditSurvey.php?id=<?php echo $row['id'] ?>"><img src="../pictures/edit_btn.png" alt="Edit" width="30" height="30"></a>
                   <a class="px-3" href=""><img src="../pictures/show_btn.png" alt="Show" width="30" height="30"></a>
-                  <a class="px-3" href=""><img src="../pictures/delete_btn.png" alt="Remove" width="30" height="30"></a>
+                  <a class="px-3" href="./DeleteSurvey.php?id=<?php echo $row['id'] ?>"><img src="../pictures/delete_btn.png" alt="Remove" width="30" height="30"></a>
                 </td>
               </tr>
               <?php endwhile; ?>

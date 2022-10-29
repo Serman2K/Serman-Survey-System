@@ -36,7 +36,7 @@ else {
 <?php
 }
 else {
-  header("Location: Login.php");
+  header("Location: ../html/Login.php");
   exit();
 }
 ?>

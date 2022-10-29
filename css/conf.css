@@ -1,0 +1,23 @@
+body {
+    --mainColor: #b389cb;
+    --mainColorDark: #8d4eb1;
+    margin: 1vmax;
+}
+
+.confirmation {
+    align-items: center;
+    padding-top: 4vmax;
+    padding-bottom: 40px;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+h2 {
+    color: var(--mainColor);
+}
+
+button {
+    width: 25%;
+}
