@@ -9,6 +9,12 @@ include "db_conn.php";
 	function createDirectory() {
 		$add = generateRandomString();
 		mkdir("../sb/".$add);
+		$add2 = "../sb/".$add;
+		$myfile = fopen($add2 . "/link.txt", "w");
+		fwrite($myfile, $add);
+		fwrite($myfile, "\n");
+		fwrite($myfile, $_SESSION['id']);
+		fclose($myfile);
         return $add;
 	}
 
