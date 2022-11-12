@@ -74,8 +74,18 @@ foreach($qry as $k => $v){
 					      $question = $conn->query("SELECT * FROM questions where survey_id = $id");
 					      while($row=$question->fetch_assoc()):	
 					      ?>
+
                 <div>
+
+                <div>
+                  <div style="display: inline-block;">
                   <h5 class="pt-4"><?php echo $row['question'] ?></h5>
+                  </div>
+                    <div style="display: inline-block;" class="float-right">
+                      <a class="px-3" href="../php/questionDeleteSeq.php?qid=<?php echo $row['id'] ?>&sid=<?php echo $_GET['id'] ?>"><img src="../pictures/delete_btn.png" alt="Remove" width="21" height="25"></a>
+                    </div>
+                </div>
+
                   <div>
                     <input type="hidden" name="qid[]" value="<?php echo $row['id'] ?>">
 
