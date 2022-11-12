@@ -50,7 +50,7 @@ foreach($qry as $k => $v){
               </h6>
               <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                  <a href="#" id="modalBtn" class="btn btn-primary m-2">Show</a>
+                  <a href="#" id="showBtn" class="btn btn-primary m-2 showBtn">Show</a>
                 </li>
               </ul>
               <p>Start: <b><?php echo date("G:i, M d, Y",strtotime($start_date)) ?></b></p>

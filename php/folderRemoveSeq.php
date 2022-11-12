@@ -13,6 +13,7 @@ foreach($qry as $k => $v){
 }
 
 unlink('../sb/'.$Folder.'/link.txt');
+unlink('../sb/'.$Folder.'/Survey.php');
 rmdir('../sb/'.$Folder);
 
 if ($stmt = $conn->query("DELETE FROM surveys WHERE id=".$_GET['sid'])) {

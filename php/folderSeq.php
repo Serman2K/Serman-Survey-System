@@ -9,12 +9,13 @@ include "db_conn.php";
 	function createDirectory() {
 		$add = generateRandomString();
 		mkdir("../sb/".$add);
-		$add2 = "../sb/".$add;
-		$myfile = fopen($add2 . "/link.txt", "w");
-		fwrite($myfile, $add);
-		fwrite($myfile, "\n");
-		fwrite($myfile, $_SESSION['id']);
-		fclose($myfile);
+		//$add2 = "../sb/".$add;
+		//$myfile = fopen($add2 . "/link.txt", "w");
+		//fwrite($myfile, $add);
+		//fwrite($myfile, "\n");
+		//fwrite($myfile, $_SESSION['id']);
+		//fclose($myfile);
+        copy("../html/Survey.php", "../sb/".$add."/Survey.php");
         return $add;
 	}
 
@@ -32,6 +33,17 @@ if ($stmt = $conn->prepare('INSERT INTO surveys (user_id, title, Folder, descrip
     $folder = createDirectory();
     $stmt->bind_param('isssss', $_SESSION['id'], $_POST['survey_name'], $folder, $_POST['survey_description'], $_POST['survey_start'], $_POST['survey_end']);
     $stmt->execute();
+
+    $qry = $conn->query("SELECT * FROM surveys where Folder='$folder'")->fetch_array();
+    foreach($qry as $k => $v){
+	if($k == 'title')
+		$k = 'stitle';
+	$$k = $v;
+    }
+    $myfile = fopen("../sb/".$folder."/link.txt", "w");
+    fwrite($myfile, $id);
+    fclose($myfile);
+
     header("Location: ../html/Index.php?error=Succesfully Created");
 }
 else {
