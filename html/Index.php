@@ -97,7 +97,7 @@ include "../php/db_conn.php";
             </table>
         </div>
         <p>
-        <a href="./NewSurvey.php" id="modalBtn" class="btn btn-primary my-2">Create New Survey</a>
+        <a href="./NewSurvey.php" id="createSurvBtn" class="btn btn-primary my-2">Create New Survey</a>
         </p>
       </div>
     </div>

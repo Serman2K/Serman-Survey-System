@@ -27,6 +27,7 @@ foreach($qry as $k => $v){
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/survey.css" rel="stylesheet">
   </head>
 
   <body>
@@ -50,7 +51,7 @@ foreach($qry as $k => $v){
               </h6>
               <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                  <a href="#" id="showBtn" class="btn btn-primary m-2 showBtn">Show</a>
+                  <a href="#" id="reportBtn" class="btn btn-primary m-2 showBtn">Show</a>
                 </li>
               </ul>
               <p>Start: <b><?php echo date("G:i, M d, Y",strtotime($start_date)) ?></b></p>
@@ -63,11 +64,18 @@ foreach($qry as $k => $v){
               <h1 class="h2"><?php echo $stitle ?></h1>
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group mr-2">
-                  <a href="#" id="modalBtn" class="btn btn-primary my-2">Share</a>
+                  <a href="#" id="showBtn" class="btn btn-primary my-2">Share</a>
                 </div>
               </div>
             </div>
             <p class="lead text-muted empty-message"><?php echo $description; ?></p>
+
+            <div id="ShareModal" class="modal">
+              <div class="modal-content text-center">
+                <h3 class="linkH3">Link to your survey:</h3><br>
+                <p>localhost/3S/Serman-Survey-System/sb/<?php echo $Folder ?>/Survey.php</p>
+              </div>
+            </div>
       
             <section class="py-5 container">
                 <?php 
@@ -131,6 +139,9 @@ foreach($qry as $k => $v){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </body>
+
+<script src="../js/Survey.js"></script>
+
 </html>
 
 <?php
