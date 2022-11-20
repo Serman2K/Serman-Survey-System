@@ -115,12 +115,12 @@ while($row=$answers->fetch_assoc()){
 									<span class=""><?php echo isset($ans[$row['id']][$k]) ? count($ans[$row['id']][$k]) : 0 ?>/<?php echo $taken ?></span>
 									<div class="mx-1 col-sm-8">
 									<div class="progress w-100" >
-					                  <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" style="width: <?php echo $prog ?>%">
-					                    <span class="sr-only"><?php echo $prog ?>%</span>
+					                  <div class="progress-bar bg-info progress-bar-striped" aria-valuenow="<?php echo $prog ?>" aria-valuemin="0" aria-valuemax="100" role="progressbar" style="width: <?php echo $prog ?>%">
+									  <progress value="<?php echo $prog ?>" max="100"></progress>
 					                  </div>
 					                </div>
 					                </div>
-					                <span class="badge badge-info"><?php echo $prog ?>%</span>
+					                <span>(<?php echo $prog ?>%)</span>
 									</div>
 								</li>
 								<?php endforeach; ?>
