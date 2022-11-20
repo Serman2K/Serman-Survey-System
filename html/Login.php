@@ -27,20 +27,14 @@
 
     <div class="form-floating">
       <input type="text" class="form-control" name="emailAddress" id="emailAddress" placeholder="name@example.com">
-      <label>Email address</label>
+      <label for="emailAddress">Email address</label>
     </div>
 
     <div class="form-floating">
       <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-      <label>Password</label>
+      <label for="password">Password</label>
     </div>
-<!--
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    -->
+
     <button class="w-100 btn btn-lg btn-purple" type="submit">Login</button>
   </form>
   <a href="Register.php">Create a new account</a>

@@ -39,10 +39,6 @@
             <input type="password" class="form-control" name="password" id="password-confirm" placeholder="Password" required>
             <label for="password">password</label>
           </div>
-          <!--<div class="form-floating">
-            <input type="password" class="form-control" id="password-confirm" placeholder="Password-Confirm">
-            <label for="password">confirm password</label>
-          </div>-->
           <button class="w-100 btn btn-lg btn-purple" type="submit" name="submit" value="Register">sign up</button>
         </form>
 

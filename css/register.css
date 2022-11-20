@@ -28,20 +28,8 @@ body {
   border: 1px solid #000000;
 }
 
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
 #userName {
     margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-#userSurname {
-    margin-bottom: -1px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
