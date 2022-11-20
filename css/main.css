@@ -20,25 +20,6 @@ body {
     border: 0px;
 }
 
-.btn-search {
-    background-color: #d3692b;
-    color: #f5f5f5;
-    font-weight: 500;
-    transition-duration: 0.4s;
-  }
-
-  .btn-search:hover {
-      background-color: #a35224;
-      color: #f5f5f5;
-      border: #a35224;
-  }
-
-  .btn-search:focus {
-      background-color: #d3692b;
-      color: #f5f5f5;
-      border: #d3692b;
-  }
-
   .survey-name {            
     font-size: 2vmin;
     font-weight: bold;
@@ -46,7 +27,7 @@ body {
     padding: 1vmin;
   }
 
-  .survey-func-button {
+  .survey-func-btn {
     font-size: 2vmin;
     padding: 1vmin;
   }
