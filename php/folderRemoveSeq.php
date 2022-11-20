@@ -17,7 +17,11 @@ unlink('../sb/'.$Folder.'/Survey.php');
 rmdir('../sb/'.$Folder);
 
 if ($stmt = $conn->query("DELETE FROM surveys WHERE id=".$_GET['sid'])) {
-    header("Location: ../html/Index.php?error=Succesfully Removed");
+    if ($stmt = $conn->query("DELETE FROM questions WHERE survey_id=".$_GET['sid'])) {
+      if ($stmt = $conn->query("DELETE FROM answers WHERE survey_id=".$_GET['sid'])) {
+        header("Location: ../html/Index.php?error=Succesfully Removed");
+      }
+    }
 }
 else {
     echo 'Error Occurred';
