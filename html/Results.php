@@ -114,14 +114,11 @@ while($row=$answers->fetch_assoc()){
 									<div class="d-flex w-100">
 									<span class=""><?php echo isset($ans[$row['id']][$k]) ? count($ans[$row['id']][$k]) : 0 ?>/<?php echo $taken ?></span>
 									<div class="mx-1 col-sm-8">
-									<div class="progress w-100" >
-					                  <div class="progress-bar bg-info progress-bar-striped" aria-valuenow="<?php echo $prog ?>" aria-valuemin="0" aria-valuemax="100" role="progressbar" style="width: <?php echo $prog ?>%">
-									  <progress value="<?php echo $prog ?>" max="100"></progress>
-					                  </div>
-					                </div>
-					                </div>
-					                <span>(<?php echo $prog ?>%)</span>
-									</div>
+									<!--<div class="progress w-100" >
+					                  <div class="progress-bar bg-info progress-bar-striped" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" role="progressbar" style="width: >%"> -->
+									  <progress value="<?php echo $prog ?>" max="100"></progress> (<?php echo $prog ?>%)
+					                  <!--</div>
+					                </div>-->
 								</li>
 								<?php endforeach; ?>
 								</ul>
