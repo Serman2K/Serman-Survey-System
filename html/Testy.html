@@ -1,104 +1,61 @@
 <!doctype html>
-
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Survey</title>
+    <link rel="icon" type="favicon" href="../pictures/favicon.ico">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <title>New Question</title>
-  <link rel="icon" type="favicon" href="../pictures/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/survey.css" rel="stylesheet">
+  </head>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link href="../css/main.css" rel="stylesheet">
-  <link href="../css/que.css" rel="stylesheet">
-</head>
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+          <nav class="col-md-2 d-none d-md-block sidebar">
+            <h1><img class="mt" src="../pictures/Logo.png" alt="" width="200" height="200"></h1>
+            <div class="sidebar-sticky">
+              <ul class="nav flex-column">
+                <li class="nav-item ms-4">
+                  <a href="Index.php" class="btn btn-primary ms-2 ps-5 pe-5">Back</a>
+                </li>
 
-<body>
-
-  <main class="text-center align-center">
-    <h1><img class="mt-2" src="../pictures/Logo.png" alt="" width="200" height="200"></h1>
-
-    <form action="../php/questionSeq.php" method="post">
-      <div class="text-center">
-        <div class="w-100 text-center">
-          <h2>New Question</h2>
-          <p class="lead text-muted">Type your question here:</p>
-          <textarea class="form-control mb-4 Question" name="question" id="question" required></textarea>
-
-          <p class="lead text-muted">Question answer type:</p>
-          <select name="qtype" class="qtype" id="qtype">
-            <option value="radio_btn">Single choice</option>
-            <option value="check_box">Multiple choice</option>
-            <option value="text_f">Text Field</option>
-          </select>
-
-          <p class="lead text-muted preview">Answers:</p>
-          <div class="answers-preview">
-
-            <div id="radio_btn_preview">
-              <div class="callout callout-info">
-
-                <table width="100%">
-                  <colgroup>
-                    <col width="10%">
-                    <col width="80%">
-                    <col width="10%">
-                  </colgroup>
-                  <tbody class="answers-list">
-                    <tr>
-                      <td class="text-center">
-                        <input type="checkbox" id="checkAns-1" name="check" checked="" />
-                        <label for="checkAns1"></label>
-                      </td>
-                      <td class="text-center">
-                        <input type="text" class="form-control" value="" placeholder="Option 1" />
-                      </td>
-                      <td class="text-center"></td>
-                    </tr>
-                    <tr>
-                      <td class="text-center">
-                        <input type="checkbox" id="checkAns-2" name="check" checked="" />
-                        <label for="checkAns2"></label>
-                      </td>
-                      <td class="text-center">
-                        <input type="text" class="form-control" value="" placeholder="Option 2" />
-                      </td>
-                      <td class="text-center"></td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <div class="row">
-                  <div class="col-sm-12 pt-4 text-center">
-                    <button class="btn btn-success" type="button" onclick="new_check($(this))"> Add</button>
-                  </div>
+              </ul>
+      
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+                  <span data-feather="plus-circle"></span>
+                </a>
+              </h6>
+              <ul class="nav flex-column mb-2">
+                <li class="nav-item ms-4">
+                  <a href="#" id="reportBtn" class="btn btn-danger m-2 showBtn">Clear Answers</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+      
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Results for Survey A</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                  <a href="#" id="showBtn" class="btn btn-success my-2 ps-5 pe-5">Print</a>
                 </div>
-
               </div>
             </div>
 
-          </div>
+          </main>
+</div>
+</div>
 
-          <div>
-            <button type="submit" name="submit" class="btn btn-primary preview" id="btnCreateQuestion"
-              value="Create">Add Question</button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  <div class="text-center">
-    <button class="mt-2 btn text-center align-center btn-secondary w-10" id="closeBtn"
-      onclick="location.href='../html/ShowSurvey.php'">Cancel</button>
-  </div>
+  </body>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-
-</body>
+<script src="../js/Survey.js"></script>
 
 </html>
