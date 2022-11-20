@@ -60,21 +60,21 @@ while($row=$answers->fetch_assoc()){
           <nav class="col-md-2 d-none d-md-block sidebar">
             <h1><img class="mt" src="../pictures/Logo.png" alt="" width="200" height="200"></h1>
             <div class="sidebar-sticky">
-              <ul class="nav flex-column">
+              <ul class="nav flex-column mb-2">
                 <li class="nav-item ms-4">
                   <a href="ShowSurvey.php?id=<?php echo $_GET['sid'] ?>" class="btn btn-primary ms-2 ps-5 pe-5">Back</a>
                 </li>
-
               </ul>
-      
-              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-                  <span data-feather="plus-circle"></span>
-                </a>
-              </h6>
+
               <ul class="nav flex-column mb-2">
                 <li class="nav-item ms-4">
                   <a href="DeleteResults.php?sid=<?php echo $_GET['sid'] ?>" id="reportBtn" class="btn btn-danger m-2 showBtn">Clear Answers</a>
+                </li>
+              </ul>
+
+			  <ul class="nav flex-column mb-2">
+                <li class="nav-item ms-4">
+					<button id="printBtn" onclick="window.print();return false;" class="btn btn-success ms-2 ps-5 pe-5">Print</button>
                 </li>
               </ul>
             </div>
@@ -83,11 +83,6 @@ while($row=$answers->fetch_assoc()){
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 class="h2">Report for <?php echo $stitle ?></h1>
-              <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group mr-2">
-                  <a href="PrintReport.php?sid=<?php echo $id ?>" target="_blank" rel="noopener noreferrer" id="showBtn" class="btn btn-success my-2 ps-5 pe-5">Print</a>
-                </div>
-              </div>
             </div>
 
             <div>
@@ -151,13 +146,9 @@ while($row=$answers->fetch_assoc()){
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  </body>
-
-<script src="../js/Survey.js"></script>
+</body>
 
 </html>
-
-
 
 <?php
 }
