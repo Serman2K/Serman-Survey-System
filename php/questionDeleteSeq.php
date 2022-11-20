@@ -13,7 +13,6 @@ else {
     echo 'Error Occurred';
 }
 ?>
-?>
 
 <?php
 }
