@@ -25,7 +25,11 @@ if($qtype != "text_f") {
 		}
     $arr[$k] = $v;
   }
-  $qdata .= ", form_option='".json_encode($arr)."' ";
+  $arr = array_map('htmlentities',$arr);
+  $arr2 = json_encode($arr);
+  $arr3 = str_replace("\\", "\\\\", $arr2);
+  //echo '<pre>'; print_r($arr3); echo '</pre>';
+  $qdata .= ", form_option='".$arr3."' ";
 }
 else {
   $qdata .= ", form_option='' ";
