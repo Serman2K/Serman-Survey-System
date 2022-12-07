@@ -49,6 +49,7 @@ while($row=$answers->fetch_assoc()){
     <title>Results</title>
     <link rel="icon" type="favicon" href="../pictures/favicon.ico">
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/survey.css" rel="stylesheet">
@@ -92,7 +93,7 @@ while($row=$answers->fetch_assoc()){
                   <a href="ResultBar.php?sid=<?php echo $_GET['sid'] ?>" class="btn btn-primary ms-2 w-75">Bar Chart</a>
                 </li>
 				<li class="nav-item">
-                  <a href="ResultColumn.php?sid=<?php echo $_GET['sid'] ?>" class="btn btn-primary ms-2 w-75">Column Chart</a>
+                  <a href="Results.php?sid=<?php echo $_GET['sid'] ?>" class="btn btn-primary ms-2 w-75">Standard Chart</a>
                 </li>
               </ul>
             </div>
@@ -101,7 +102,7 @@ while($row=$answers->fetch_assoc()){
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 class="h2">Report for <?php echo $stitle ?></h1>
-			  <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group mr-2">
                 <span><b>Taken: <?php echo $taken?></b></span>
                 </div>
@@ -114,34 +115,23 @@ while($row=$answers->fetch_assoc()){
 
             <div>
                 <?php 
+                $nr = 1;
 				$question = $conn->query("SELECT * FROM questions where survey_id = $id");
 				while($row=$question->fetch_assoc()):	
 				?>
 
-                    <div class="callout callout-info">
-						<h5><?php echo $row['question'] ?></h5>	
+          <div class="callout callout-info">
 						<div class="col-md-12">
 						<input type="hidden" name="qid[<?php echo $row['id'] ?>]" value="<?php echo $row['id'] ?>">	
 						<input type="hidden" name="type[<?php echo $row['id'] ?>]" value="<?php echo $row['type'] ?>">	
 							
 							<?php if($row['type'] != 'text_f'):?>
 								<ul class="ResultsArea">
-							<?php foreach(json_decode($row['form_option']) as $k => $v): 
-								$prog = ((isset($ans[$row['id']][$k]) ? count($ans[$row['id']][$k]) : 0) / $taken) * 100;
-								$prog = round($prog,2);
-								?>
-								<li>
-									<div class="d-block w-100">
-										<b><?php echo $v ?></b>
-									</div>
-									<div class="d-flex w-100">
-									<span class=""><?php echo isset($ans[$row['id']][$k]) ? count($ans[$row['id']][$k]) : 0 ?>/<?php echo $taken ?></span>
-									<div class="mx-1 col-sm-8">
-									<progress value="<?php echo $prog ?>" max="100"></progress> (<?php echo $prog ?>%)
-								</li>
-								<?php endforeach; ?>
+                  <div id="chartQ--<?php echo $nr ?>" style="height: 500px; width: 90%;"></div>
 								</ul>
+
 						<?php else: ?>
+              <h5><?php echo $row['question'] ?></h5>	
 							<div class="d-block tfield-area w-75">
 								<?php if(isset($ans[$row['id']])): ?>
 								<?php foreach($ans[$row['id']] as $val): ?>
@@ -150,9 +140,13 @@ while($row=$answers->fetch_assoc()){
 								<?php endif; ?>
 							</div>
 						<?php endif; ?>
+            <br>
 						</div>	
 					</div>
-					<?php endwhile; ?>
+					<?php 
+            $nr = $nr + 1;
+            endwhile; 
+          ?>
 
             </div>
 
@@ -165,6 +159,60 @@ while($row=$answers->fetch_assoc()){
 </body>
 
 </html>
+
+<script>
+  google.charts.load('current', { 'packages': ['corechart', 'bar'] });
+  google.charts.setOnLoadCallback(drawTopX);
+
+  function drawTopX() {
+
+    <?php 
+    $qmax = 1;
+    $questionChart = $conn->query("SELECT * FROM questions where survey_id = $id");
+    ?>
+
+    <?php 
+      while($row=$questionChart->fetch_assoc()):	
+        if ($row['type'] == 'text_f') {
+          $qmax = $qmax + 1;
+          continue;
+        }
+    ?>
+
+
+var data = google.visualization.arrayToDataTable([
+          ['Answers', 'Votes'],
+          <?php foreach(json_decode($row['form_option']) as $k => $v): 
+              $prog = (isset($ans[$row['id']][$k]) ? count($ans[$row['id']][$k]) : 0);
+              echo "['".$v."', ".$prog."],";
+            endforeach;
+          ?>
+        ]);
+
+    var options = {
+      legend: { position: 'none' },
+      titleTextStyle: {
+          color: '#000000',
+          fontSize: 20
+        },
+      chart: {
+        title: "<?php echo $row['question'] ?>"
+        }
+    };
+    var checkChart = document.getElementById(`chartQ--${<?php echo $qmax?>}`);
+
+    if(checkChart)
+    {
+      var chart2 = new google.charts.Bar(checkChart);
+      chart2.draw(data, google.charts.Bar.convertOptions(options));
+    }
+
+    <?php 
+      $qmax = $qmax + 1;
+      endwhile; 
+    ?>
+}
+</script>
 
 <?php
 }
