@@ -5,6 +5,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 <?php
 include "db_conn.php";
+$qry = $conn->query("SELECT title FROM surveys where id = ".$_POST['sid'])->fetch_array();
+foreach($qry as $k => $v){
+	if($k == 'title')
+		$k = 'stitle';
+	$$k = $v;
+}
+if($user_id != $_SESSION['id']){
+    header("Location: ../html/Index.php");
+    exit();
+  }
 
 $qtype = $_POST['qtype'];
 $sid = $_POST['sid'];

@@ -13,6 +13,9 @@ foreach($qry as $k => $v){
 		$k = 'stitle';
 	$$k = $v;
 }
+if($user_id != $_SESSION['id']){
+  header("Location: ../html/Index.php");
+}
 $takensup1 = $conn->query("SELECT * from answers where survey_id ={$id}")->num_rows;
 $takensup2 = $conn->query("SELECT distinct(question_id) from answers where survey_id ={$id}")->num_rows;
 if($takensup1==0) {

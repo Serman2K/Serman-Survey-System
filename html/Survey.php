@@ -13,6 +13,9 @@ foreach($surv as $k => $v){
 		$k = 'stitle';
 	$$k = $v;
 }
+if($user_id != $_SESSION['id']){
+  header("Location: ../html/Index.php");
+}
 
 $ActDate = date('Y-m-d H:i:s', time());
 $SurvDateStart = date('Y-m-d H:i:s', strtotime($start_date));

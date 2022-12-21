@@ -14,6 +14,9 @@ foreach($qry as $k => $v){
 		$k = 'stitle';
 	$$k = $v;
 }
+if($user_id != $_SESSION['id']){
+  header("Location: ../html/Index.php");
+}
 ?>
 
 <!doctype html>
