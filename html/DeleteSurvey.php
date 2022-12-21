@@ -5,7 +5,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 <?php
 include '../php/db_conn.php';
-$qry = $conn->query("SELECT title FROM surveys where id = ".$_GET['id'])->fetch_array();
+$qry = $conn->query("SELECT * FROM surveys where id = ".$_GET['id'])->fetch_array();
 foreach($qry as $k => $v){
 	if($k == 'title')
 		$k = 'stitle';
