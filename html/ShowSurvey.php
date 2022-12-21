@@ -73,7 +73,7 @@ if($user_id != $_SESSION['id']){
             <div id="ShareModal" class="modal">
               <div class="modal-content text-center">
                 <h3 class="linkH3">Link to your survey:</h3><br>
-                <p>localhost/3S/Serman-Survey-System/sb/<?php echo $Folder ?>/Survey.php</p>
+                <p><?php echo $_SERVER['SERVER_NAME'] ?>/3S/Serman-Survey-System/sb/<?php echo $Folder ?>/Survey.php</p>
               </div>
             </div>
       
