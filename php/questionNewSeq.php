@@ -20,6 +20,11 @@ $qtype = $_POST['qtype'];
 $sid = $_POST['sid'];
 $question = $_POST['question'];
 
+if($qtype != "text_f" && $qtype != "check_box" && $qtype != "radio_btn"){
+  header("Location: ../html/NewQue.php?sid=".$_POST['sid']."&error=Please choose answer type");
+  exit();
+}
+
 $qdata = " survey_id=$sid , question='$question' , type='$qtype' ";
 
 extract($_POST);

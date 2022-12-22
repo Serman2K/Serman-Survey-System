@@ -37,6 +37,10 @@ include "../php/db_conn.php";
     <p class="lead text-muted">Question:</p>
     <textarea class="form-control mb-4 Question" name="question" id="question" required></textarea>
 
+    <?php if (isset($_GET['error'])) { ?>
+            <p class="error"><?php echo $_GET['error']; ?></p>
+          <?php } ?>
+          
     <p class="lead text-muted">Question answer type:</p>
 		<select name="qtype" class="qtype" id="qtype" onchange="ansType()">
 			<option value="none" disabled="" selected="">--Select--</option>
