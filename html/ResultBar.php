@@ -130,7 +130,7 @@ while($row=$answers->fetch_assoc()){
 							
 							<?php if($row['type'] != 'text_f'):?>
 								<ul class="ResultsArea">
-                  <div id="chartQ--<?php echo $nr ?>" style="height: 500px;"></div>
+                  <div id="chartQ--<?php echo $nr ?>" style="height: 500px; width: 75%;"></div>
 								</ul>
 
 						<?php else: ?>
