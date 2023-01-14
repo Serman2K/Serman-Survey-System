@@ -82,7 +82,7 @@ include "../php/db_conn.php";
               <tr>
                 <th class="text-center"><?php echo $i++ ?></th>
                 <td class="survey-name"><?php echo $row['title'] ?></td>
-                <td class="truncate"><?php echo $row['description'] ?></td>
+                <td class="text-truncate" style="max-width: 150px;"><?php echo $row['description'] ?></td>
                 <td><?php echo date("G:i, M d, Y",strtotime($row['start_date'])) ?></td>
                 <td><?php echo date("G:i, M d, Y",strtotime($row['end_date'])) ?></td>
                 <td class="survey-func-btn">
